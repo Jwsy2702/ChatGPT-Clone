@@ -50,6 +50,9 @@ function App() {
   //when user clicks on what is programming or how to use an api
   const handleQuery = async (e) => {
     const text = e.target.value;
+    console.log("e.target.value", e);
+    console.log("text", text);
+    //set messages first so that user can see the query, if not it will just hang and user will think that the app is not working
     setMessages([...messages, { text, isBot: false }]);
     const msg = await sendMsgToOpenAI(input);
     setMessages([
@@ -149,7 +152,7 @@ function App() {
           </div>
           <p>
             ChatGpt may produce inaccurate information about people, places, or
-            facts. ChatGPT Version 1
+            facts. ChatGPT Version 1.0.0
           </p>
         </div>
       </div>

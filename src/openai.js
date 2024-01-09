@@ -1,7 +1,7 @@
 import OpenAI from "openai";
-// const apiUrl = "https://api.openai.com/v1/completions";
+
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
@@ -27,5 +27,5 @@ export async function sendMsgToOpenAI(message) {
     frequency_penalty: 0,
     presence_penalty: 0, //Number between -2 and 2, where negative numbers encourage the model to talk about new topics, and positive numbers encourage the model to respond similarly to previous statements.
   });
-  return [completion.choices[0].message.content, image.data[0].url || null];
+  return [completion.choices[0].message.content, image?.data[0].url || null];
 }
